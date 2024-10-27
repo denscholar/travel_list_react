@@ -8,12 +8,12 @@ const initialItems = [
   { id: 4, description: "shoes", quantity: 8, packed: true },
 ];
 
-const ParkingList = ({items, onDeleteItem}) => {
+const ParkingList = ({items, onDeleteItem, onToggle}) => {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item key={item.id} itemObj={item} onDeleteItem={onDeleteItem} />
+          <Item key={item.id} itemObj={item} onDeleteItem={onDeleteItem} onToggle={onToggle} />
         ))}
       </ul>
     </div>

@@ -16,11 +16,23 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
   return (
     <div className="App">
       <Logo />
       <Form onAddItem={handleAddItems} />
-      <ParkingList items={items} onDeleteItem={handleDeleteItem} />
+      <ParkingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onToggle={handleToggleItem}
+      />
       <Stats />
     </div>
   );
