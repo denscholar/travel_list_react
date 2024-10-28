@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Item from "./Item";
 
 const initialItems = [
@@ -8,14 +8,30 @@ const initialItems = [
   { id: 4, description: "shoes", quantity: 8, packed: true },
 ];
 
-const ParkingList = ({items, onDeleteItem, onToggle}) => {
+const ParkingList = ({ items, onDeleteItem, onToggle }) => {
+  const [sortBy, setSortBy] = useState('input')
+
+  let sortedItems;
+
+  if (sortBy === "input") {
+    sortedItems = items;
+  }
   return (
     <div className="list">
       <ul>
-        {items.map((item) => (
+        {sortedItems.map((item) => (
           <Item key={item.id} itemObj={item} onDeleteItem={onDeleteItem} onToggle={onToggle} />
         ))}
       </ul>
+
+      <div className="actions">
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="input">Sort by input</option>
+          <option value="description">Sort by description</option>
+          <option value="parked">Sort by parked</option>
+        </select>
+      </div>
+
     </div>
   );
 };
