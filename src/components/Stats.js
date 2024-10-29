@@ -4,7 +4,6 @@ const Stats = ({ items }) => {
   const itemLength = items.length;
   const packed = items.filter((item) => item.packed).length;
   const percentage = Math.round((packed / itemLength) * 100);
- 
 
   return (
     <footer className="stats">

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const Item = (props) => {
   const { description, quantity, packed, id } = props.itemObj;
@@ -9,9 +10,7 @@ const Item = (props) => {
       <input type="checkbox" value={id} onChange={() => onToggle(id)} />
       <span style={packed ? { textDecoration: "line-through" } : {}}>
         {description} {quantity}
-        <button style={{ color: "red" }} onClick={() => onDeleteItem(id)}>
-          X
-        </button>
+        <Button color="red" text="X" onClick={() => onDeleteItem(id)} />
       </span>
     </li>
   );

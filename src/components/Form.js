@@ -36,8 +36,6 @@ const Form = ({onAddItem}) => {
         <input type="text" placeholder='Item...' value={description} onChange={(e) => setDescription(e.target.value)} />
 
         <button>Add</button>
-
-
       </form>
 
     </div>
